@@ -1,0 +1,25 @@
+SilverSpace - VST3 (estilo Trackspacer) para REAPER / Windows
+
+COMO COMPILAR (GitHub)
+1) Envie para o repositorio: CMakeLists.txt, a pasta Source (5 arquivos) e build-workflow.yml.
+2) Como o site nao envia pastas ocultas: no GitHub clique em "Add file > Create new file",
+   digite no nome:  .github/workflows/build.yml
+   (digitar as barras cria as pastas) e cole dentro o conteudo de build-workflow.yml.
+   O runner ja esta em windows-2022.
+3) Aba Actions > Build SilverSpace > baixe o artefato SilverSpace-VST3.
+4) Copie a pasta SilverSpace.vst3 para C:\Program Files\Common Files\VST3
+
+USO NO REAPER (sidechain)
+- Coloque o SilverSpace na faixa que sera "aberta" (ex.: teclado/guitarra).
+- Na faixa que deve ter prioridade (ex.: voz) crie um Send para a faixa do plugin,
+  em "Send to: Channels 3/4" (sidechain). A faixa do plugin precisa ter 4 canais
+  (botao Routing > Track channels = 4).
+- Sem sidechain externo o plugin usa a propria faixa (como o Trackspacer 2.5.8).
+- Latencia: 2048 amostras (o REAPER compensa automaticamente).
+
+CONTROLES
+Amount, Low-Cut, High-Cut (tambem arrastaveis no display; duplo clique reseta), Freeze.
+Ponto azul no display = painel Avancado: Pan, L/R-M/S, Attack, Release, SC Audition,
+e extras: Sensitivity (limiar do sidechain), Range (quantos dB abaixo do pico ainda
+sofrem reducao), Mix, Output.
+Display: azul = espectro do sidechain; navy = reducao aplicada (escala a direita).
